@@ -21,38 +21,36 @@ const addBlogSuccess = (title, content) => {
 
 //edit blog
 export const editBlog = (dispatch) => {
-  return (title, content, callback) => {
-    dispatch(editBlogSuccess(title, content));
+  return (editPost, callback) => {
+    dispatch(editBlogSuccess(editPost));
     if (callback) {
       callback();
     }
   };
 };
-const editBlogSuccess = (title, content) => {
+const editBlogSuccess = (editPost) => {
   return {
     type: EDIT_BLOG,
     payload: {
-      title,
-      content,
+      editPost,
     },
   };
 };
 
 //del blog
 export const delBlog = (dispatch) => {
-  return (title, content, callback) => {
-    dispatch(delBlogSuccess(title, content));
+  return (id, callback) => {
+    dispatch(delBlogSuccess(id));
     if (callback) {
       callback();
     }
   };
 };
-const delBlogSuccess = (title, content) => {
+const delBlogSuccess = (id) => {
   return {
     type: DEL_BLOG,
     payload: {
-      title,
-      content,
+      id,
     },
   };
 };

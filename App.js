@@ -14,6 +14,9 @@ import BlogCreateScreen from "./src/Screens/BlogCreateScreen";
 //provider
 import { Provider } from "./src/globalContext/GlobalContext";
 
+//icon
+import { AntDesign } from "@expo/vector-icons";
+
 const navigator = createStackNavigator(
   {
     Show: BlogShowScreen,

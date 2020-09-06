@@ -16,7 +16,7 @@ const createGlobalContext = (actions, reducer, initialState) => {
       boundActions[key] = actions[key](dispatch);
     }
     return (
-      <Context.Provider value={{ ...state, ...boundActions }}>
+      <Context.Provider value={{ state, ...boundActions }}>
         {children}
       </Context.Provider>
     );
@@ -24,7 +24,7 @@ const createGlobalContext = (actions, reducer, initialState) => {
   return { Context, Provider };
 };
 
-export default { Context, Provider } = createGlobalContext(
+export const { Context, Provider } = createGlobalContext(
   action,
   globalReducer,
   []

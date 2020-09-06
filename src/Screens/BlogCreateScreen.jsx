@@ -1,14 +1,29 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+//main
+import React, { useContext } from "react";
 
-const BlogCreateScreen = () => {
+//components
+import { StyleSheet, View } from "react-native";
+import BlogForm from "../Components/BlogForm";
+
+//context
+import { Context } from "../globalContext/GlobalContext";
+
+const BlogCreateScreen = ({ navigation }) => {
+  const { addBlog } = useContext(Context);
+  const createPost = (title, content) => {
+    addBlog(title, content, () => navigation.pop());
+  };
   return (
     <View>
-      <Text>Blog Create</Text>
+      <BlogForm submitForm={createPost} />
     </View>
   );
 };
-
+BlogCreateScreen.navigationOptions = () => {
+  return {
+    title: "Blog Create",
+  };
+};
 export default BlogCreateScreen;
 
 const styles = StyleSheet.create({});
