@@ -15,7 +15,7 @@ const BlogCreateScreen = ({ navigation }) => {
   };
   return (
     <View>
-      <BlogForm submitForm={createPost} />
+      <BlogForm submitForm={createPost} btnText="Create Post" />
     </View>
   );
 };

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 //components
 import { StyleSheet, Text, View, TextInput, Button } from "react-native";
 
-const BlogForm = ({ submitForm, Title, Content }) => {
+const BlogForm = ({ submitForm, Title, Content, btnText }) => {
   const [title, setTitle] = useState(Title);
   const [content, setContent] = useState(Content);
   const contentHandler = (value) => {
@@ -33,10 +33,7 @@ const BlogForm = ({ submitForm, Title, Content }) => {
           value={content}
           onChangeText={contentHandler}
         />
-        <Button
-          title={"create Post"}
-          onPress={() => submitForm(title, content)}
-        />
+        <Button title={btnText} onPress={() => submitForm(title, content)} />
       </View>
     </View>
   );

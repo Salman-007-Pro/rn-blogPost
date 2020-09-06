@@ -1,11 +1,19 @@
 //constants
-import { ADD_BLOG, EDIT_BLOG, DEL_BLOG } from "./../Constant/globalConstant";
+import {
+  ADD_BLOG,
+  EDIT_BLOG,
+  DEL_BLOG,
+  GET_BLOG,
+} from "./../Constant/globalConstant";
 
 //utitlities
 import { updateDelItemState, createNewPost, editPost } from "./utilities";
 
 const globalReducer = (state, action) => {
   switch (action.type) {
+    case GET_BLOG:
+      return [...action.payload.blogPosts];
+
     case ADD_BLOG:
       return createNewPost(state, action.payload);
 

@@ -1,5 +1,5 @@
 //main
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 //components
 import {
@@ -18,8 +18,14 @@ import { Context } from "../globalContext/GlobalContext";
 import { AntDesign } from "@expo/vector-icons";
 
 const BlogShowScreen = ({ navigation }) => {
-  const { state, delBlog } = useContext(Context);
-  console.log(state);
+  const { state, delBlog, getBlog } = useContext(Context);
+  useEffect(() => {
+    getBlog();
+    const listner = navigation.addListener("didFocus", getBlog);
+    return () => {
+      listner.remove();
+    };
+  }, []);
   return (
     <View style={{ marginTop: 10, flex: 1 }}>
       <SafeAreaView style={{ flex: 1 }}>

@@ -26,6 +26,7 @@ const BlogEditScreen = ({ navigation }) => {
         submitForm={editPost}
         Title={blogPost.title}
         Content={blogPost.content}
+        btnText="Edit Post"
       />
     </View>
   );
